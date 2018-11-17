@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 
-import Header from './containers/Header/Header';
+import SearchHeader from './containers/SearchHeader/SearchHeader';
 
 class App extends Component {
+  state = {
+    value: '',
+    searchResults: []
+  }
+
+  onSearch = e => {
+    this.setState({ value: e.target.value });
+  }
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <SearchHeader
+          value={this.state.value}
+          onSearch={this.onSearch}
+        />
       </div>
     );
   }
