@@ -1,0 +1,32 @@
+.card {
+    display: flex;
+    background: #fff;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 2px;
+    height: 230px;
+    overflow: hidden;
+
+    &:hover {
+        -webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.3);
+    }
+
+    &__left {
+        margin-right: 20px;
+        img {
+            height: 200px;
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media(min-width: 768px) {
+        display: inline-flex;
+        width: calc(50% - 30px);
+    }
+}

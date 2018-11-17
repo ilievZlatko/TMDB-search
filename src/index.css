@@ -25,6 +25,52 @@ ul {
   list-style: none;
 }
 
+h6 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  color: #848484;
+  margin-bottom: 10px;
+}
+
+.date {
+  color: #929292;
+  margin-bottom: 10px
+}
+
+.overview {
+  color: #848484;
+}
+
+.no-results {
+  display: block;
+  margin: 25px auto;
+  text-align: center;
+  font-size: 20px;
+}
+
 .container {
   width: 95%;
   margin: 0 auto;
