@@ -7,6 +7,10 @@ import { BASE_URL, API_KEY, IMAGE_BASE_URL } from './constants';
 import SearchHeader from './containers/SearchHeader/SearchHeader';
 import Card from './components/Card/Card';
 import NoImage from './assets/images/no-image.png';
+import logoImage from './assets/images/logo.svg';
+import Logo from './components/Logo/Logo';
+import SearchField from './components/SearchField/SearchField';
+import DateDisplayer from './components/DateDisplayer/DateDisplayer';
 
 class App extends Component {
   state = {
@@ -23,7 +27,7 @@ class App extends Component {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: API_KEY,
+            'Authorization': API_KEY,
           },
         },
       );
@@ -45,7 +49,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SearchHeader value={this.state.searchTerm} onSearch={this.onSearch} />
+        <SearchHeader>
+          <ul className="search-container">
+            <li className="search-container__logo-holder">
+              <Logo image={logoImage} alt="logo" />
+            </li>
+            <li className="search-container__search-field-holder">
+              <SearchField value={this.state.searchTerm} onSearch={this.onSearch} />
+            </li>
+          </ul>
+        </SearchHeader>
         <div className="container">
           {this.state.searchResults && this.state.searchResults.length > 0 ?
             map(this.state.searchResults, data => 
@@ -58,11 +71,12 @@ class App extends Component {
                 }
               >
                 <h4>{data.title}</h4>
-                <span
-                  className="date">
-                  release date: {data.release_date.replace(/-/g, '.')}
-                </span>
-                <p className="overview">{truncate(data.overview, 100)}</p>
+                <DateDisplayer
+                  inputDate={data.release_date}
+                  dateFormat="YYYY.MM.DD"
+                  label="release date:"
+                />
+                <p className="overview">{truncate(data.overview, 60)}</p>
               </Card>
             ) : <div className="no-results">No results found!</div>
           }

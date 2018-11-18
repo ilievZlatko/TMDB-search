@@ -69,7 +69,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
     "lodash": "^4.17.11",
+    "moment": "^2.22.2",
     "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0"
   },
@@ -80,7 +83,8 @@
     ],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [
-      "react-app-polyfill/jsdom"
+      "react-app-polyfill/jsdom",
+      "./src/jest.config.js"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
