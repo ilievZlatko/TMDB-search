@@ -6,7 +6,6 @@ import { truncate } from './utils/helperMethods';
 import { BASE_URL, API_KEY, IMAGE_BASE_URL } from './constants';
 import SearchHeader from './containers/SearchHeader/SearchHeader';
 import Card from './components/Card/Card';
-import NoImage from './assets/images/no-image.png';
 import logoImage from './assets/images/logo.svg';
 import Logo from './components/Logo/Logo';
 import SearchField from './components/SearchField/SearchField';
@@ -55,7 +54,11 @@ class App extends Component {
               <Logo image={logoImage} alt="logo" />
             </li>
             <li className="search-container__search-field-holder">
-              <SearchField value={this.state.searchTerm} onSearch={this.onSearch} />
+              <SearchField
+                placeholder="Search movies here..."
+                value={this.state.searchTerm}
+                onSearch={this.onSearch}
+              />
             </li>
           </ul>
         </SearchHeader>
@@ -64,11 +67,7 @@ class App extends Component {
             map(this.state.searchResults, data => 
               <Card
                 key={data.id}
-                cardImage={
-                  data.poster_path ? 
-                  `${IMAGE_BASE_URL}${data.poster_path}` : 
-                  NoImage
-                }
+                cardImage={ `${IMAGE_BASE_URL}${data.poster_path}` }
               >
                 <h4>{data.title}</h4>
                 <DateDisplayer
