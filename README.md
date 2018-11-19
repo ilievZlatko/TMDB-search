@@ -26,7 +26,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### solution: 
 Type the following command in your terminal
-###`echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
+`echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
 
 ## Dependencies
 - moment.js - for working with dates and times (https://momentjs.com)
